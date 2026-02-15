@@ -1,96 +1,163 @@
-# IntelliJ Platform Plugin Template
+# やまとダイワプログラミング生産性 | Yamato Daiwa Programming Productivity (YDPP)
 
-[![Twitter Follow](https://img.shields.io/badge/follow-%40JBPlatform-1DA1F2?logo=twitter)](https://twitter.com/JBPlatform)
-[![Developers Forum](https://img.shields.io/badge/JetBrains%20Platform-Join-blue)][jb:forum]
+ライブテンプレートやファイルテンプレートやプログラミング生産性向上専用の其の他の手段を含むIntelliJ IDEA専用のプラグイン。
+[株式会社やまとダイワ](https://yamato-daiwa.com/)のノウハウとして、　[株式会社やまとダイワ](https://yamato-daiwa.com/)と人材育成サービスを
+  購入した御客様に限って配布。
 
-## Plugin template structure
 
-A generated project contains the following content structure:
+## ファイル
+### 「TypeScript Entity」群
 
+空クラス、関数等。
+
+<dl>
+
+  <dt>Class</dt>
+  <dd>空クラス</dd>
+
+  <dt>Class and namespace</dt>
+  <dd>クラス及び同名の名スペース</dd>
+
+  <dt>Function<dt>
+  <dd>空関数</dd>
+
+  <dt>Type<dt>
+  <dd>型エリアス（<code>type</code>キーワード）</dd>
+
+  <dt>Interface<dt>
+  <dd>インターフェース</dd>
+
+  <dt>Enum<dt>
+  <dd>列挙</dd> 
+
+</dl>
+
+
+## ライブテンプレート
+
+[ライブテンプレートとは？](https://pleiades.io/help/idea/using-live-templates.html) 
+
+
+### JSDoc
+
+TypeScript内、JSDocの利用は基本的に不要だが、記述（`@description`）や返す値の本質（`@return`）を表す為のTypeScriptには無い機能や、
+  Pug内のJavaScriptに使うと良い場合が有る。
+
+> ℹ️ 此の群のライブテンプレートは全部オートコンプリート型（省略無し）。
+
+<dl>
+
+  <dt><kbd>@description</kbd></dt>
+  <dd>関数名・メソッド名が曖昧な時、名前の低い品質を<kbd>@description</kbd>で補うのではなく、名前を分かりやすくするのだ。</dd>
+
+  <dt><kbd>@type</kbd></dt>
+  <dd>TypeScript内には不要だが、Pug内のJavaScriptには利用必須。</dd>
+
+</dl>
+
+
+### Pug
+#### アトリビュート
+
+<dl>
+
+  <dt><kbd>attrs</kbd></dt>
+  <dd><code>&attributes(attributes)</code>を追加。</dd>
+
+  <dt><kbd>attrsc</kbd></dt>
+  <dd>
+    <code>class</code>アトリビュートが長すぎる（120列を超える）時、下記通り<code>&attributes({ class: [] })</code>を使って指定すると良い。
+    <pre><code>
+      &attributes({
+        class: [
+          "ComponentWithVeryVerLongName-ElementWithVeryVerLongName__ModifierWithVeryVeryLongName1",
+          "ComponentWithVeryVerLongName-ElementWithVeryVerLongName__ModifierWithVeryVeryLongName2"
+        ]
+      })    
+    </code></pre>
+  </dd>
+
+</dl>
+
+
+
+#### コメント系
+##### コメント見出し
+
+言語を関係無く、見出しはコードを節分けて読みやすく表すするのに大事。
+但し、見出しは分かりにくいコードを分かりやすくする為の手段では*なく*、コードを読みすく為の手段なので、変数名・関数名・クラス名等を明確する事が必要なままだ。
+
+```pug
+//- ━━━ Heading 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+//- ┅┅┅ Heading 2 ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅
+//- ╍╍╍ Heading 3 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
+//- ─── Heading 4 ──────────────────────────────────────────────────────────────────────────────────────────────────────
+//- ┄┄┄ Heading 5 ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+//- ╌╌╌ Heading 6 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
 ```
-.
-├── .run/                   Predefined Run/Debug Configurations
-├── build/                  Output build directory
-├── gradle
-│   ├── wrapper/            Gradle Wrapper
-├── src                     Plugin sources
-│   ├── main
-│   │   ├── kotlin/         Kotlin production sources
-│   │   └── resources/      Resources - plugin.xml, icons, messages
-├── .gitignore              Git ignoring rules
-├── build.gradle.kts        Gradle build configuration
-├── gradle.properties       Gradle configuration properties
-├── gradlew                 *nix Gradle Wrapper script
-├── gradlew.bat             Windows Gradle Wrapper script
-├── README.md               README
-└── settings.gradle.kts     Gradle project settings
+
+> ⚠️ 見出し行の文字数を120文字にする推奨。但し、全角文字の幅はフォント依存、従って環境依存なので、線の長さをどちらの環境にも同じ長さにする為、見出しを英語にする推薦。
+
+見出し１から見出し６へ行くと、ライブテンプレートは
+
++ <kbd>ch1</kbd> `//- ━━━ Heading 1 ━━━━━━━━━━━`
++ <kbd>ch2</kbd> `//- ┅┅┅ Heading 2 ┅┅┅┅┅┅┅┅┅┅┅`
++ <kbd>ch3</kbd> `//- ╍╍╍ Heading 3 ╍╍╍╍╍╍╍╍╍╍╍`
++ <kbd>ch4</kbd> `//- ─── Heading 4 ───────────`
++ <kbd>ch5</kbd> `//- ┄┄┄ Heading 5 ┄┄┄┄┄┄┄┄┄┄┄`
++ <kbd>ch6</kbd> `//- ╌╌╌ Heading 6 ╌╌╌╌╌╌╌╌╌╌╌`
+
+
+##### TODO線 <kbd>todod</kbd>
+
+言語を関係無く、ファイル内に上書きのコードと下書きコードが混在している事が一般的。
+下書きのコードをTODO線のコメントで指示すると良い。
+
+```pug
+p 上書きコード
+
+//- TODO < ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+p 下書きコード
+
+//- TODO > ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+p 上書きコード
 ```
 
-In addition to the configuration files, the most crucial part is the `src` directory, which contains our implementation and the manifest for our plugin – [plugin.xml][file:plugin.xml].
+```pug
+p 上書きコード
 
-> [!NOTE]
-> To use Java in your plugin, create the `/src/main/java` directory.
+//- TODO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Plugin configuration file
+p 現時点では、ファイルの終わり迄下書きコードしかない。
+```
 
-The plugin configuration file is a [plugin.xml][file:plugin.xml] file located in the `src/main/resources/META-INF` directory.
-It provides general information about the plugin, its dependencies, extensions, and listeners.
 
-You can read more about this file in the [Plugin Configuration File][docs:plugin.xml] section of our documentation.
+#### テキストブロック内
 
-If you're still not quite sure what this is all about, read our introduction: [What is the IntelliJ Platform?][docs:intro]
+<dl>
 
-$H$H Predefined Run/Debug configurations
+  <dt><kbd>nbs</kbd></dt>
+  <dd>ノーブレークスペース（「&nbsp;」）を導入。日本語には余り関係なく、単語が空白で分けられている（世界の）言語に使われる。</dd>
 
-Within the default project structure, there is a `.run` directory provided containing predefined *Run/Debug configurations* that expose corresponding Gradle tasks:
+  <dt><kbd>ti</kbd></dt>
+  <dd><a href="https://pugjs.org/language/interpolation.html#tag-interpolation">タグ挿入</a>表現。</dd>
 
-| Configuration name | Description                                                                                                                                                                         |
-|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Run Plugin         | Runs [`:runIde`][gh:intellij-platform-gradle-plugin-runIde] IntelliJ Platform Gradle Plugin task. Use the *Debug* icon for plugin debugging.                                        |
-| Run Tests          | Runs [`:test`][gradle:lifecycle-tasks] Gradle task.                                                                                                                                 |
-| Run Verifications  | Runs [`:verifyPlugin`][gh:intellij-platform-gradle-plugin-verifyPlugin] IntelliJ Platform Gradle Plugin task to check the plugin compatibility against the specified IntelliJ IDEs. |
+</dl>
 
-> [!NOTE]
-> You can find the logs from the running task in the `idea.log` tab.
 
-## Publishing the plugin
+#### 大量コード生成
 
-> [!TIP]
-> Make sure to follow all guidelines listed in [Publishing a Plugin][docs:publishing] to follow all recommended and required steps.
+<dl>
 
-Releasing a plugin to [JetBrains Marketplace](https://plugins.jetbrains.com) is a straightforward operation that uses the `publishPlugin` Gradle task provided by the [intellij-platform-gradle-plugin][gh:intellij-platform-gradle-plugin-docs].
+  <dt><kbd>mixin</kbd></dt>
+  <dd>オートコンプリート型でがあるが、ミクスインの初期コードを生成。</dd>
 
-You can also upload the plugin to the [JetBrains Plugin Repository](https://plugins.jetbrains.com/plugin/upload) manually via UI.
+  <dt><kbd>table</kbd></dt>
+  <dd>
+    オートコンプリート型でがあるが、HTMLのテーブルの初期コードを導入。
+    <code>caption</code>、<code>thead</code>、<code>tfoot</code>含めだが、要らなければ削除すると良い。
+  </dd>
 
-## Useful links
-
-- [IntelliJ Platform SDK Plugin SDK][docs]
-- [IntelliJ Platform Gradle Plugin Documentation][gh:intellij-platform-gradle-plugin-docs]
-- [IntelliJ Platform Explorer][jb:ipe]
-- [JetBrains Marketplace Quality Guidelines][jb:quality-guidelines]
-- [IntelliJ Platform UI Guidelines][jb:ui-guidelines]
-- [JetBrains Marketplace Paid Plugins][jb:paid-plugins]
-- [IntelliJ SDK Code Samples][gh:code-samples]
-
-[docs]: https://plugins.jetbrains.com/docs/intellij
-[docs:intro]: https://plugins.jetbrains.com/docs/intellij/intellij-platform.html?from=IJPluginTemplate
-[docs:plugin.xml]: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html?from=IJPluginTemplate
-[docs:publishing]: https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate
-
-[file:plugin.xml]: ./src/main/resources/META-INF/plugin.xml
-
-[gh:code-samples]: https://github.com/JetBrains/intellij-sdk-code-samples
-[gh:intellij-platform-gradle-plugin]: https://github.com/JetBrains/intellij-platform-gradle-plugin
-[gh:intellij-platform-gradle-plugin-docs]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
-[gh:intellij-platform-gradle-plugin-runIde]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-tasks.html#runIde
-[gh:intellij-platform-gradle-plugin-verifyPlugin]: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin-tasks.html#verifyPlugin
-
-[gradle:lifecycle-tasks]: https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks
-
-[jb:github]: https://github.com/JetBrains/.github/blob/main/profile/README.md
-[jb:forum]: https://platform.jetbrains.com/
-[jb:quality-guidelines]: https://plugins.jetbrains.com/docs/marketplace/quality-guidelines.html
-[jb:paid-plugins]: https://plugins.jetbrains.com/docs/marketplace/paid-plugins-marketplace.html
-[jb:quality-guidelines]: https://plugins.jetbrains.com/docs/marketplace/quality-guidelines.html
-[jb:ipe]: https://jb.gg/ipe
-[jb:ui-guidelines]: https://jetbrains.github.io/ui
+</dl>

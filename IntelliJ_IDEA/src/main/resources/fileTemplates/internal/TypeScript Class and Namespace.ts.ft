@@ -1,0 +1,13 @@
+class ${NAME} {
+
+}
+
+
+namespace ${NAME} {
+
+}
+
+
+export default ${NAME} {
+
+}

@@ -1,28 +1,45 @@
 <!-- Plugin Configuration File: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <!-- Unique identifier of the plugin. It should be FQN, cannot be changed between the plugin versions. -->
-    <id>com.yamatodaiwa.IntelliJ_IDEA</id>
+
+  <!-- Unique identifier of the plugin. It should be FQN, cannot be changed between the plugin versions. -->
+  <id>com.yamatodaiwa.YamatoDaiwaProgrammingProductivity</id>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
-    <name>IntelliJ_IDEA</name>
+    <name>Yamato Daiwa Programming Productivity</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor url="https://yamato-daiwa.com/">Yamato Daiwa Co., Ltd.</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
-    <description><![CDATA[
-        Enter short description for your plugin here.<br>
-        <em>most HTML tags may be used</em>
-    ]]></description>
+    <description>
+      Live Templates, Files Templates and other tools for programming productivity.
+      Being the part of Yamato Daiwa's know-how, distributed only to a limited extent.
+    </description>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.ultimate</depends>
 
     <!-- Extensions defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
+      <defaultLiveTemplates file="/liveTemplates/JSDoc.xml"/>
+      <defaultLiveTemplates file="/liveTemplates/Pug.xml"/>
     </extensions>
+
+    <actions>
+      <action
+        id="YamatoDaiwa.CreateTypeScriptFunction"
+        class="com.yamatodaiwa.intellij_idea.CreateTypeScriptFunctionAction"
+        text="TypeScript Entity"
+        description="Creates a new TypeScript file with some entity"
+      >
+        <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>
+      </action>
+    </actions>
+
 </idea-plugin>

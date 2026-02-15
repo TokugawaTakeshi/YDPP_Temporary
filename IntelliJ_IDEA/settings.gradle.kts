@@ -1,1 +1,1 @@
-rootProject.name = "IntelliJ_IDEA"
+rootProject.name = "Yamato Daiwa Programming Productivity"

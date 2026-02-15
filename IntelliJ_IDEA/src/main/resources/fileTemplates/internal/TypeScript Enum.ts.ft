@@ -1,0 +1,6 @@
+enum ${NAME} {
+
+}
+
+
+export default ${NAME};
