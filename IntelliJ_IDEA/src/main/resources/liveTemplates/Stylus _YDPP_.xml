@@ -1,0 +1,147 @@
+<templateSet group="Stylus [YDPP]">
+  <template name="ad2p" value="WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 500px&#10;    &#10;WideViewportsPhase()&#10;  @media (min-width: WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS)&#10;    {block}&#10;&#10;NarrowViewportsPhase()&#10;  @media (max-width: WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}" description="Adaptive Design - 2 Phases" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="ad3p" value="WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 500px&#10;MEDIUM_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 420px&#10;&#10;&#10;WideViewportsPhase()&#10;  @media (min-width: WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS)&#10;    {block}&#10;&#10;MediumViewportsPhase()&#10;  @media (min-width: MEDIUM_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS) and (max-width: WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}&#10;&#10;NarrowViewportsPhase()&#10;  @media (max-width: MEDIUM_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}&#10;&#10;WideAndMediumViewportsPhases()&#10;  @media (min-width: MEDIUM_VIEWPORTS_CONFIGURATION_MINIMAL_WIDTH)&#10;    {block}&#10;&#10;MediumAndNarrowViewportsPhases()&#10;  @media (max-width: WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}" description="Adaptive Design - 3 Phases" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="ad4p" value="// --- Extra Wide + Wide + Narrow + Extra Narrow &#10;EXTRA_WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 1024px&#10;WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 860px&#10;MEDIUM_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 680px&#10;NARROW_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 500px&#10;&#10;ExtraWideViewportsPhase()&#10;  @media (min-width: EXTRA_WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS)&#10;    {block}&#10;&#10;WideViewportsPhase()&#10;  @media (min-width: WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS) and (max-width: EXTRA_WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}&#10;&#10;MediumViewportsPhase()&#10;  @media (min-width: MEDIUM_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS) and (max-width: WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}&#10;&#10;NarrowViewportsPhase()&#10;  @media (min-width: NARROW_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS) and (max-width: MEDIUM_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}&#10;&#10;ExtraNarrowViewportsPhase()&#10;  @media (max-width: NARROW_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}&#10;    &#10;// --- Extra Wide + Wide + Medium + Narrow &#10;// --- Wide + Medium + Narrow + Extra Narrow " description="Adaptive Design - 4 Phases" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="ad5p" value="EXTRA_WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 1024px&#10;WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 860px&#10;MEDIUM_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 680px&#10;NARROW_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS = 500px&#10;&#10;ExtraWideViewportsPhase()&#10;  @media (min-width: EXTRA_WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS)&#10;    {block}&#10;&#10;WideViewportsPhase()&#10;  @media (min-width: WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS) and (max-width: EXTRA_WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}&#10;&#10;MediumViewportsPhase()&#10;  @media (min-width: MEDIUM_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS) and (max-width: WIDE_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}&#10;&#10;NarrowViewportsPhase()&#10;  @media (min-width: NARROW_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS) and (max-width: MEDIUM_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}&#10;&#10;ExtraNarrowViewportsPhase()&#10;  @media (max-width: NARROW_VIEWPORTS_PHASE_MINIMAL_WIDTH__PIXELS - 1)&#10;    {block}" description="Adaptive Design - 5 Phases" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="adp" value="+$PHASE$()&#10;&#10;  $END$&#10;  &#10;  &#10;" description="Adaptive Design Phase" toReformat="false" toShortenFQNames="true">
+    <variable name="PHASE" expression="enum(&quot;WideViewportsPhase&quot;, &quot;MediumViewportsPhase&quot;, &quot;NarrowViewportsPhase&quot;, &quot;ExtraWideViewportsPhase&quot;, &quot;ExtraNarrowViewportsPhase&quot;, &quot;WideAndMediumViewportsPhases&quot;, &quot;MediumAndNarrowViewportsPhases&quot;)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="border-geometry" value="border-width $END$&#10;border-radius 8px" description="Borders Geometry" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="border-decoration" value="border-style $END$&#10;border-color gray" description="Borders Decoration" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="bottom-border-geometry" value="border-bottom-width $END$border-bottom-left-radius 8px&#10;border-bottom-right-radius 8px" description="Bottom Border Geometry" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="bottom-border-decoration" value="border-bottom-style $END$&#10;border-bottom-color gray" description="Bottom Border Decoration" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="left-border-geometry" value="border-left-width $END$&#10;border-top-left-radius 8px&#10;border-bottom-left-radius" description="Left Border Geometry" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="left-border-decoration" value="border-left-style $END$&#10;border-left-color gray" description="Left Border Decoration" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="ch1" value="// ━━━ $END$ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" description="Comment Heading - Level 1" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="ch2" value="// ┅┅┅ $END$ ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅&#10;" description="Comment Heading - Level 2" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="ch3" value="// ╍╍╍ $END$ ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍&#10;" description="Comment Heading - Level 3" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="ch4" value="// ─── $END$ ───────────────────────────────────────────────────────────────────────────────────────────────────────────&#10;" description="Comment Heading - Level 4" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="ch5" value="// ┄┄┄ $END$ ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄" description="Comment Heading - Level 5" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="ch6" value="// ╌╌╌ $END$ ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌" description="Comment Heading - Level 6" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="right-border-geometry" value="border-right-width $END$&#10; border-top-right-radius 8px&#10; border-bottom-right-radius 8px" description="Right Border Geometry" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="right-border-decoration" value="border-right-style $END$&#10;border-right-color gray" description="Right Border Decoration" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="top-border-geometry" value="border-top-width $END$&#10;border-top-left-radius 8px&#10;border-top-right-radius" description="Top Border Geometry" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="top-border-decoration" value="border-top-style $END$&#10;border-top-color gray" description="Bottom Border Decoration" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="grid" value="display grid&#10;$END$grid-template-areas\&#10;    &quot;UPPER_FIXED_CONTENT_SLOT UPPER_FIXED_CONTENT_SLOT&quot;\&#10;    &quot;SIDEBAR MAIN_CONTENT&quot;&#10;grid-template-rows auto 1fr auto&#10;&#10;grid-template-columns auto minmax(0, 1fr)&#10;// OR:&#10;grid-template-columns repeat(auto-fit, minmax(250px, 1fr));&#10;// About &quot;auto-fill&quot; and &quot;auto-fit&quot; difference: https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/#aa-fill-or-fit-whats-the-difference&#10;&#10;column-gap 12px&#10;row-gap 6px" description="Frequently Used Grid Container Properties" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="mm01fr" value="minmax(0, 1fr)" description="minmax(0, 1fr)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+      <option name="CSS_DECLARATION_BLOCK" value="false" />
+      <option name="CSS_RULESET_LIST" value="false" />
+    </context>
+  </template>
+  <template name="todod" value="// ━━━ TODO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#10;// ━━━ &lt; TODO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━&#10;// ━━━ TODO &gt; ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" description="TODO Dividers" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+      <option name="CSS_PROPERTY_VALUE" value="false" />
+    </context>
+  </template>
+  <template name="flex" value="display flex&#10;$END$flex-direction column&#10;flex-wrap wrap&#10;justify-content center&#10;align-items center&#10;column-gap 4px&#10;row-gap 6px" description="Frequently Used Flex Container Properties" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="absolute-positioning" value="position absolute&#10;$END$top 0&#10;bottom 0&#10;left 0&#10;right 0&#10;z-index: YDF_Configuration.zIndexes.$LAYER$" description="Properties Set for the Absolute Positioning" toReformat="false" toShortenFQNames="true">
+    <variable name="LAYER" expression="enum(&quot;lowermostLayer&quot;, &quot;drawers&quot;, &quot;floatingBelowModalsComponents&quot;, &quot;modalsUnderlay&quot;, &quot;floatingAboveModalsComponents&quot;, &quot;blockingOverlay&quot;, &quot;floatingNotifications&quot;)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="geometry" value="$END$min-width 100px&#10;max-width 300px&#10;width 100%&#10;height 100%&#10;border-width 1px&#10;border-radius 8px&#10;padding 6px&#10;padding-block 6px&#10;padding-inline 6px&#10;font-size 16px&#10;line-height 1.2" description="Element Geometry Properties Set" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+  <template name="decoration" value="$END$border-style solid&#10;border-color transparent&#10;color black&#10;box-shadow 0 0 2px 4px alpha(black, 20%)" description="Element Decoration Properties Set" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS_DECLARATION_BLOCK" value="true" />
+    </context>
+  </template>
+</templateSet>

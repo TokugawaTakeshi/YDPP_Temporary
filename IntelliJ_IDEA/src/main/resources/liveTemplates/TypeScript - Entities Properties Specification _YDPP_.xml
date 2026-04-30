@@ -1,0 +1,34 @@
+<templateSet group="TypeScript - Business Rules [YDPP - Incubator]">
+  <template name="eps-s" value="export enum SampleEnumeration {&#10;  alpha = &quot;ALPHA&quot;,&#10;  bravo = &quot;BRAVO&quot;&#10;}&#10;&#10;export namespace $NAMESPACE$ {&#10;  export const NAME: string = &quot;$NAME$&quot;;&#10;  export const TYPE: StringConstructor = String;&#10;  export const REQUIRED: boolean = $REQUIRED$;&#10;  export const MINIMAL_ONE_BYTE_CHARACTERS_COUNT: number = 8;&#10;  export const MAXIMAL_ONE_BYTE_CHARACTERS_COUNT: number = 250;&#10;  export const FIXED_ONE_BYTE_CHARACTERS_COUNT: number = 24;&#10;  export const ALLOWED_VALUES: ReadonlySet&lt;SampleEnumeration&gt; = new Set(Object.values(SampleEnumeration));&#10;  export const REGULAR_EXPRESSION: RegExp = EMAIL_ADDRESS_VALID_PATTERN;&#10;  export const ALLOWED_NON_WORD_CHARACTERS: ReadonlySet&lt;string&gt; = new Set([&#10;    &quot;!&quot;,&#10;    &quot;@&quot;,&#10;    &quot;#&quot;,&#10;    &quot;$&quot;,&#10;    &quot;^&quot;,&#10;    &quot;*&quot;,&#10;    &quot;-&quot;,&#10;    &quot;_&quot;,&#10;    &quot;+&quot;,&#10;    &quot;=&quot;,&#10;    &quot;{&quot;,&#10;    &quot;}&quot;,&#10;    &quot;[&quot;,&#10;    &quot;]&quot;,&#10;    &quot;|&quot;,&#10;    &quot;\\&quot;,&#10;    &quot;/&quot;,&#10;    &quot;:&quot;,&#10;    &quot;;&quot;,&#10;    &quot;&lt;&quot;,&#10;    &quot;&gt;&quot;,&#10;    &quot;,&quot;,&#10;    &quot;.&quot;,&#10;    &quot;?&quot;&#10;  ]);&#10;}&#10;" description="String entity property specification (YDPP)" toReformat="false" toShortenFQNames="true">
+    <variable name="NAMESPACE" expression="capitalize(clipboard())" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="camelCase(NAMESPACE)" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="enum(&quot;true&quot;, &quot;false&quot;)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="eps-b" value="export namespace $NAMESPACE$ {&#10;  export const NAME: string = &quot;$NAME$&quot;;&#10;  export const TYPE: BooleanConstructor = Boolean;&#10;  export const REQUIRED: boolean = $REQUIRED$;&#10;}&#10;" description="Boolean entity property specification (YDPP)" toReformat="false" toShortenFQNames="true">
+    <variable name="NAMESPACE" expression="capitalize(clipboard())" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="camelCase(NAMESPACE)" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="enum(&quot;true&quot;, &quot;false&quot;)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="eps-n" value="export namespace $NAMESPACE$ {&#10;  export const NAME: string = &quot;$NAME$&quot;;&#10;  export const TYPE: NumberConstructor = Number;&#10;  export const REQUIRED: boolean = $REQUIRED$;&#10;  export const MINIMAL_VALUE: number = 1;&#10;  export const MAXIMAL_VALUE: number = 365;&#10;  /* 【助言】 &#10;   * 一般的にはビジネスメール内に外部ライブラリを利用禁止だが、「fundamental-constants」族は例外。&#10;   * 最大値がバイト数に結び付いている時、下記の定数を使うと良い。&#10;   * 但し、最大値はデータベースに依存してはならなく、お客様の需要にだけ依存しなければいけない。&#10;   * ● MAXIMAL_VALUE_OF_1_BYTE_INTEGERa&#10;   * ● MAXIMAL_VALUE_OF_2_BYTES_INTEGER&#10;   * ● MAXIMAL_VALUE_OF_4_BYTES_INTEGER&#10;   * ● MAXIMAL_VALUE_OF_8_BYTES_INTEGER&#10;   * ● MAXIMAL_VALUE_OF_UNSIGNED_1_BYTE_INTEGER&#10;   * ● MAXIMAL_VALUE_OF_UNSIGNED_2_BYTES_INTEGER&#10;   * ● MAXIMAL_VALUE_OF_UNSIGNED_3_BYTES_INTEGER&#10;   * ● MAXIMAL_VALUE_OF_UNSIGNED_4_BYTES_INTEGER&#10;   * ● MINIMAL_VALUE_OF_1_BYTE_INTEGER&#10;   * ● MINIMAL_VALUE_OF_2_BYTES_INTEGER&#10;   * ● MINIMAL_VALUE_OF_3_BYTES_INTEGER&#10;   * ● MINIMAL_VALUE_OF_4_BYTES_INTEGER&#10;   * ● MINIMAL_VALUE_OF_8_BYTES_INTEGER&#10;   */&#10;   // TODO ↑ コメントを削除&#10;}" description="Numeric entity property specification (YDPP)" toReformat="false" toShortenFQNames="true">
+    <variable name="NAMESPACE" expression="capitalize(clipboard())" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="camelCase(NAMESPACE)" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="enum(&quot;true&quot;, &quot;false&quot;)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="eps-o" value="export namespace $NAMESPACE$ {&#10;  export const NAME: string = &quot;$NAME$&quot;;&#10;  export const TYPE: ObjectConstructor = Object;&#10;  export const REQUIRED: boolean = $REQUIRED$;&#10;}" description="Object entity property specification (YDPP)" toReformat="false" toShortenFQNames="true">
+    <variable name="NAMESPACE" expression="capitalize(clipboard())" defaultValue="" alwaysStopAt="true" />
+    <variable name="NAME" expression="camelCase(NAMESPACE)" defaultValue="" alwaysStopAt="true" />
+    <variable name="REQUIRED" expression="enum(&quot;true&quot;, &quot;false&quot;)" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TS_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,0 +1,137 @@
+import type $RELATED_ENTITY$ from "@Entities/$RELATED_ENTITY$";
+import type ContactRequest from "@Entities/ContactRequest/ContactRequest";
+import type InvalidContactRequestSubmittingAttempt from "@Entities/ContactRequest/InvalidContactRequestSubmittingAttempt";
+
+
+interface $RELATED_ENTITY$Gateway {
+
+  retrieveAll: () => Promise<Array<$RELATED_ENTITY$>>;
+
+  retrieveSelection:
+      (requestParameters: $RELATED_ENTITY$Gateway.SelectionRetrieving.RequestParameters) =>
+          Promise<$RELATED_ENTITY$Gateway.SelectionRetrieving.ResponseData>;
+
+  retrieveExpectedToBeExistingOneByID: (target$RELATED_ENTITY$ID: $RELATED_ENTITY$.ID) => Promise<$RELATED_ENTITY$>;
+
+  addOne: (requestData: $RELATED_ENTITY$Gateway.AddingOfOne.RequestData) => Promise<$RELATED_ENTITY$>;
+
+  updateOne: (requestData: $RELATED_ENTITY$Gateway.UpdatingOfOne.RequestData) => Promise<$RELATED_ENTITY$>;
+
+  deleteOne: (target$RELATED_ENTITY$ID: $RELATED_ENTITY$.ID) => Promise<void>;
+
+
+
+  /* ━━━ 認証系専用 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  signIn: (requestData: AccessControlGateway.SigningIn.RequestData) => Promise<void>;
+
+  signOut: () => Promise<void>;
+
+
+  /* ━━━ 問い合わせフォーム ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  submitLegitimateOne: (
+    requestData: ContactRequestGateway.LegitimateContactRequestSubmitting.RequestData
+  ) => Promise<ContactRequest.ID>;
+
+  recordInvalidContactRequestSubmittingAttempt: (
+    requestData: ContactRequestGateway.InvalidContactRequestSubmittingRecording.RequestData
+  ) => Promise<void>;
+
+}
+
+
+namespace $RELATED_ENTITY$Gateway {
+
+  export namespace SelectionRetrieving {
+
+    export type RequestParameters = Readonly<{
+      paginationPageNumber: number;
+      itemsCountPerPaginationPage: number;
+      searchingByFullOrPartialCategoryName?: string;
+      targetLanguageBCP_47_Subtag: SupportedLanguagesBCP_47_Subtags;
+    }>;
+
+    export namespace RequestParameters {
+      export const MINIMAL_CHARACTERS_AT_SEARCHING_REQUEST_BY_FULL_OR_CATEGORY_NAME: number = 2;
+    }
+
+    export type ResponseData = Readonly<{
+      itemsOfTargetPaginationPage: Array<target$RELATED_ENTITY$ID>;
+      selectionItemsCount: number;
+    }>;
+
+  }
+
+  export namespace AddingOfOne {
+
+    export type RequestData =
+        Pick<
+          $RELATED_ENTITY$,
+            "property1" |
+            "property2" |
+            "propertyN"
+        > &
+        Readonly<{
+          relationID: Releration.ID;
+        }>;
+
+  }
+
+  export namespace UpdatingOnOne {
+
+    export type RequestData =
+        Pick<
+          $RELATED_ENTITY$,
+            "property1" |
+            "property2" |
+            "propertyN"
+        > &
+        Readonly<{
+          relationID: Releration.ID;
+        }>;
+
+  }
+
+
+  /* ━━━ 認証系専用 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  export namespace SigningIn {
+
+    export type RequestData = Readonly<{
+      emailAddress: string;
+      password: string;
+    }>;
+
+  }
+
+
+  /* ━━━ 問い合わせフォーム ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  export namespace LegitimateContactRequestSubmitting {
+
+    export type RequestData = Pick<
+      ContactRequest,
+      "target" |
+      "applicantName" |
+      "applicantEmailAddress" |
+      "applicantPhoneNumber__digitsOnly" |
+      "message"
+    >;
+
+  }
+
+  export namespace InvalidContactRequestSubmittingRecording {
+
+    export type RequestData =
+        Pick<
+          InvalidContactRequestSubmittingAttempt,
+          "applicantName" |
+          "applicantEmailAddress" |
+          "applicantPhoneNumber__digitsOnly" |
+          "message"
+        > &
+        Readonly<{ target: string; }>;
+
+  }
+
+}
+
+
+export default AnnouncementGateway;

@@ -29,14 +29,24 @@
     <extensions defaultExtensionNs="com.intellij">
       <defaultLiveTemplates file="/liveTemplates/JSDoc.xml"/>
       <defaultLiveTemplates file="/liveTemplates/Pug.xml"/>
+      <defaultLiveTemplates file="/liveTemplates/Stylus _YDPP_.xml"/>
+      <defaultLiveTemplates file="/liveTemplates/TypeScript - Entities Properties Specification _YDPP_.xml"/>
     </extensions>
 
     <actions>
       <action
-        id="YamatoDaiwa.CreateTypeScriptFunction"
-        class="com.yamatodaiwa.intellij_idea.CreateTypeScriptFunctionAction"
-        text="TypeScript Entity"
-        description="Creates a new TypeScript file with some entity"
+        id="YamatoDaiwa.CreatingOfGeneralTypeScriptFileAction"
+        class="com.yamatodaiwa.intellij_idea.CreatingOfGeneralTypeScriptFileAction"
+        text="General"
+        description="Creates a new general TypeScript file with some class, function, etc."
+      >
+        <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>
+      </action>
+      <action
+        id="YamatoDaiwa.CreatingOfTypeScriptFileForBusinessRuleAction"
+        class="com.yamatodaiwa.intellij_idea.CreatingOfTypeScriptFileForBusinessRuleAction"
+        text="Business Rules"
+        description="Creates a file with a business rule in TypeScript implementation"
       >
         <add-to-group group-id="NewGroup" anchor="after" relative-to-action="NewFile"/>
       </action>

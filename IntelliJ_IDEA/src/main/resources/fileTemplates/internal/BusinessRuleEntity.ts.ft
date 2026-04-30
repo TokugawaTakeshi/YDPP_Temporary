@@ -1,0 +1,213 @@
+type ${NAME} = {
+
+  ID: ${NAME}.ID;
+
+  exampleNumericRequiredProperty: number;
+  exampleNumericOptionalProperty?: number;
+
+  exampleStringRequiredProperty: string;
+  exampleStringOptionalProperty?: string;
+
+  exampleBooleanProperty: boolean;
+
+};
+
+
+namespace ${NAME} {
+
+  export const NAME: string = "${NAME}";
+
+  /* ━━━ ID ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  export type ID = string;
+  export namespace ID {
+
+    export const NAME: string = "ID";
+    export const TYPE: StringConstructor = String;
+    export const REQUIRED: boolean = true;
+    export const MINIMAL_ONE_BYTE_CHARACTERS_COUNT: number = 2;
+    export const MAXIMAL_ONE_BYTE_CHARACTERS_COUNT: number = 128;
+
+    export function isValid(potentialID: unknown): boolean {
+      return typeof potentialID === "string" &&
+          potentialID.length >= MINIMAL_CHARACTERS_COUNT &&
+          potentialID.length <= MAXIMAL_CHARACTERS_COUNT;
+    }
+
+  }
+
+  /* ━━━ Example Numeric Required Property ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  /* 【助言】 似た様な宣言をもう一件追加するには、プロパティー名をクリップボードにコピーした↑で、「npoe」（「numeric property of entity」）ライブテンプレートを使うと良い。 */
+  // TODO ↑ コメントを削除
+  export namespace ExampleNumericRequiredProperty {
+    export const NAME: string = "exampleNumericRequiredProperty";
+    export const TYPE: NumberConstructor = Number;
+    export const REQUIRED: boolean = true;
+    export const MINIMAL_VALUE: number = 0;
+    export const MAXIMAL_VALUE: number = 100;
+    /* 【助言】
+     * 一般的にはビジネスメール内に外部ライブラリを利用禁止だが、「fundamental-constants」族は例外。
+     * 最大値がバイト数に結び付いている時、下記の定数を使うと良い。
+     * 但し、最大値はデータベースに依存してはならなく、お客様の需要にだけ依存しなければいけない。
+     * ● MAXIMAL_VALUE_OF_1_BYTE_INTEGERa
+     * ● MAXIMAL_VALUE_OF_2_BYTES_INTEGER
+     * ● MAXIMAL_VALUE_OF_4_BYTES_INTEGER
+     * ● MAXIMAL_VALUE_OF_8_BYTES_INTEGER
+     * ● MAXIMAL_VALUE_OF_UNSIGNED_1_BYTE_INTEGER
+     * ● MAXIMAL_VALUE_OF_UNSIGNED_2_BYTES_INTEGER
+     * ● MAXIMAL_VALUE_OF_UNSIGNED_3_BYTES_INTEGER
+     * ● MAXIMAL_VALUE_OF_UNSIGNED_4_BYTES_INTEGER
+     * ● MINIMAL_VALUE_OF_1_BYTE_INTEGER
+     * ● MINIMAL_VALUE_OF_2_BYTES_INTEGER
+     * ● MINIMAL_VALUE_OF_3_BYTES_INTEGER
+     * ● MINIMAL_VALUE_OF_4_BYTES_INTEGER
+     * ● MINIMAL_VALUE_OF_8_BYTES_INTEGER
+     */
+     // TODO ↑ コメントを削除
+  }
+
+  /* ━━━ Example Numeric Optional Property ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  export namespace ExampleNumericOptionalProperty {
+    export const NAME: string = "exampleNumericOptionalProperty";
+    export const TYPE: NumberConstructor = Number;
+    export const REQUIRED: boolean = false;
+    export const MINIMAL_VALUE: number = 0;
+    export const MAXIMAL_VALUE: number = 100;
+    /* 【助言】
+     * 一般的にはビジネスメール内に外部ライブラリを利用禁止だが、「fundamental-constants」族は例外。
+     * 最大値がバイト数に結び付いている時、下記の定数を使うと良い。
+     * 但し、最大値はデータベースに依存してはならなく、お客様の需要にだけ依存しなければいけない。
+     * ● MAXIMAL_VALUE_OF_1_BYTE_INTEGERa
+     * ● MAXIMAL_VALUE_OF_2_BYTES_INTEGER
+     * ● MAXIMAL_VALUE_OF_4_BYTES_INTEGER
+     * ● MAXIMAL_VALUE_OF_8_BYTES_INTEGER
+     * ● MAXIMAL_VALUE_OF_UNSIGNED_1_BYTE_INTEGER
+     * ● MAXIMAL_VALUE_OF_UNSIGNED_2_BYTES_INTEGER
+     * ● MAXIMAL_VALUE_OF_UNSIGNED_3_BYTES_INTEGER
+     * ● MAXIMAL_VALUE_OF_UNSIGNED_4_BYTES_INTEGER
+     * ● MINIMAL_VALUE_OF_1_BYTE_INTEGER
+     * ● MINIMAL_VALUE_OF_2_BYTES_INTEGER
+     * ● MINIMAL_VALUE_OF_3_BYTES_INTEGER
+     * ● MINIMAL_VALUE_OF_4_BYTES_INTEGER
+     * ● MINIMAL_VALUE_OF_8_BYTES_INTEGER
+     */
+     // TODO ↑ コメントを削除
+  }
+
+
+  /* ━━━ Example String Required Property  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  export enum SampleEnumeration1 {
+    admin = "admin",
+    editor = "editor"
+  }
+
+  export namespace ExampleStringRequiredProperty {
+    export const NAME: string = "exampleStringRequiredProperty";
+    export const TYPE: StringConstructor = String;
+    export const REQUIRED: boolean = true;
+    export const MINIMAL_ONE_BYTE_CHARACTERS_COUNT: number = 8;
+    export const MAXIMAL_ONE_BYTE_CHARACTERS_COUNT: number = 250;
+    export const FIXED_ONE_BYPE_CHARACTERS_COUNT: number = 24;
+    export const ALLOWED_VALUES: ReadonlySet<SampleEnumeration1> = new Set(Object.values(SampleEnumeration1));
+    export const REGULAR_EXPRESSION: RegExp = EMAIL_ADDRESS_VALID_PATTERN;
+    export const ALLOWED_NON_WORD_CHARACTERS: ReadonlySet<string> = new Set([
+      "!",
+      "@",
+      "#",
+      "$",
+      "^",
+      "*",
+      "-",
+      "_",
+      "+",
+      "=",
+      "{",
+      "}",
+      "[",
+      "]",
+      "|",
+      "\\",
+      "/",
+      ":",
+      ";",
+      "<",
+      ">",
+      ",",
+      ".",
+      "?"
+    ]);
+  }
+
+
+  /* ━━━ Example String Optional Property  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  export namespace ExampleStringOptionalProperty {
+    export const NAME: string = "exampleStringOptionalProperty";
+    export const TYPE: StringConstructor = String;
+    export const REQUIRED: boolean = false;
+    export const MINIMAL_ONE_BYTE_CHARACTERS_COUNT: number = 8;
+    export const MAXIMAL_ONE_BYTE_CHARACTERS_COUNT: number = 250;
+    export const FIXED_ONE_BYPE_CHARACTERS_COUNT: number = 24;
+    export const ALLOWED_VALUES: Array<SampleEnumeration1> = Object.values(SampleEnumeration1);
+    export const REGULAR_EXPRESSION: RegExp = EMAIL_ADDRESS_VALID_PATTERN;
+    export const ALLOWED_NON_WORD_CHARACTERS: ReadonlySet<string> = new Set([
+      "!",
+      "@",
+      "#",
+      "$",
+      "^",
+      "*",
+      "-",
+      "_",
+      "+",
+      "=",
+      "{",
+      "}",
+      "[",
+      "]",
+      "|",
+      "\\",
+      "/",
+      ":",
+      ";",
+      "<",
+      ">",
+      ",",
+      ".",
+      "?"
+    ]);
+  }
+
+
+  /* ━━━ Example Boolean Property ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  export namespace ExampleBooleanProperty {
+    export const NAME: string = "exampleBooleanProperty";
+    export const TYPE: BooleanConstructor = Boolean;
+    export const REQUIRED: boolean = true;
+  }
+
+
+  /* ━━━ Enumeration Property ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  export enum ExampleEnumeration2 {
+    charlie = "CHARLIE",
+    delta = "DELTA"
+  }
+
+  export namespace ExampleEnumerationProperty {
+    export const TYPE: StringConstructor = String;
+    export const REQUIRED: boolean = true;
+    export const ALLOWED_VALUES: ReadonlySet<ExampleEnumeration2> = new Set(Object.values(ExampleEnumeration2));
+  }
+
+
+  /* ━━━ Date Property ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  export namespace BirthDate__ISO8101__DatePartOnly {
+    export const NAME: string = "birthDate__ISO8101__datePartOnly";
+    export const TYPE: StringConstructor = String;
+    export const REQUIRED: boolean = false;
+    export const FIXED_CHARACTERS_COUNT: number = MAXIMAL_CHARACTERS_COUNT_IN_DATE_PART_OF_ISO8601_STRING;
+  }
+
+
+}
+
+
+export default ${NAME};

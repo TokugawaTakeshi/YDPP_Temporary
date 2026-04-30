@@ -4,12 +4,48 @@
       <option name="JADE" value="true" />
     </context>
   </template>
-  <template name="attrsc" value="&amp;attributes({&#10;  class: [&#10;    &quot;$END$&quot;,&#10;    &quot;&quot;&#10;  ]&#10;})" description="Defining of CSS Classes via `&amp;attributes` literal" toReformat="false" toShortenFQNames="true">
+  <template name="attrc" value="&amp;attributes({&#10;  class: [&#10;    &quot;$END$&quot;,&#10;    &quot;&quot;&#10;  ]&#10;})" description="Defining of CSS Classes via `&amp;attributes` literal" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JADE" value="true" />
+    </context>
+  </template>
+  <template name="attribute-class" value="&amp;attributes({&#10;  class: [&#10;    &quot;$END$&quot;,&#10;    &quot;&quot;&#10;  ]&#10;})" description="Defining of CSS Classes via `&amp;attributes` literal" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JADE" value="true" />
+    </context>
+  </template>
+  <template name="attrsd" value="&amp;attributes({&#10;  [$END$]: &quot;&quot;&#10;})" description="Defining of attributes with dynamic names via `&amp;attributes` literal" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JADE" value="true" />
+    </context>
+  </template>
+  <template name="attribute-dynamic" value="&amp;attributes({&#10;  [$END$]: &quot;&quot;&#10;})" description="Defining of attributes with dynamic names via `&amp;attributes` literal" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JADE" value="true" />
+    </context>
+  </template>
+  <template name="attribute-object-assign" value="&amp;attributes(&#10;  Object.assign(&#10;    {},&#10;    attributes,&#10;    {&#10;      $END$&#10;    }&#10;  )&#10;)" description="Defining of attributes via `&amp;attributes` literal keeping `attribute` object" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JADE" value="true" />
+    </context>
+  </template>
+  <template name="attroo" value="&amp;attributes(&#10;  Object.assign(&#10;    {},&#10;    attributes,&#10;    {&#10;      $END$&#10;    }&#10;  )&#10;)" description="Defining of attributes via `&amp;attributes` literal keeping `attribute` object" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JADE" value="true" />
     </context>
   </template>
   <template name="attrs" value="&amp;attributes(attributes)" description="`&amp;attributes` Literal" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JADE" value="true" />
+    </context>
+  </template>
+  <template name="attributes" value="&amp;attributes(attributes)" description="`&amp;attributes` Literal" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JADE" value="true" />
+    </context>
+  </template>
+  <template name="tag_interpolation" value="#[$TAG_NAME$ $SELECTION$]" description="Tag Interpolation" toReformat="false" toShortenFQNames="true">
+    <variable name="TAG_NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JADE" value="true" />
     </context>
@@ -25,6 +61,11 @@
       <option name="JADE" value="true" />
     </context>
   </template>
+  <template name="nbs" value="&amp;non_breaking_space;" description="Non-breaking Space (the HTML Entity)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JADE" value="true" />
+    </context>
+  </template>
   <template name="nbs" value="&amp;nbsp;" description="Non-breaking Space (the HTML Entity)" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JADE" value="true" />
@@ -35,7 +76,18 @@
       <option name="JADE" value="true" />
     </context>
   </template>
+  <template name="table" value="table&#10;&#10;  caption&#10;&#10;  thead: tr&#10;    th&#10;    th&#10;      &#10;  tbody&#10;  &#10;    tr&#10;      th&#10;      td&#10;      &#10;    tr&#10;      th&#10;      td&#10;      &#10;  tfoot: tr&#10;    td&#10;    td" description="Initial Code For Table" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JADE" value="true" />
+    </context>
+  </template>
   <template name="tbl" value="table&#10;&#10;  caption&#10;&#10;  thead: tr&#10;    th&#10;    th&#10;      &#10;  tbody&#10;  &#10;    tr&#10;      th&#10;      td&#10;      &#10;    tr&#10;      th&#10;      td&#10;      &#10;  tfoot: tr&#10;    td&#10;    td" description="Initial Code For Table" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JADE" value="true" />
+    </context>
+  </template>
+  <template name="mixin" value="mixin $MIXIN_NAME$(properties, statesSimulations)&#10;&#10;  -&#10;  &#10;    const {&#10;  &#10;    } = properties ?? {};&#10;    &#10;    const {&#10;    &#10;    } = statesSimulations ?? {};&#10;  &#10;  .$MIXIN_NAME$&amp;attributes(attributes)" description="Pug Mixin Declaration" toReformat="false" toShortenFQNames="true">
+    <variable name="MIXIN_NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JADE" value="true" />
     </context>

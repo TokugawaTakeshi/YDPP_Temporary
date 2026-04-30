@@ -7,9 +7,9 @@ import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDirectory
 
 
-class CreateTypeScriptFunctionAction : CreateFileFromTemplateAction(
-  "TypeScript Entity",
-  "Creates a new TypeScript file with some entity",
+class CreatingOfGeneralTypeScriptFileAction : CreateFileFromTemplateAction(
+  "General",
+  "Creates a new general TypeScript file with some class, function, etc.",
   FileTypeManager.getInstance().getFileTypeByExtension("ts").icon
 ) {
 
@@ -22,7 +22,7 @@ class CreateTypeScriptFunctionAction : CreateFileFromTemplateAction(
     val typeScriptIcon = FileTypeManager.getInstance().getFileTypeByExtension("ts").icon
 
     builder.
-        setTitle("TypeScript Entity").
+        setTitle("General").
         addKind("Class", typeScriptIcon, "TypeScript Class").
         addKind("Class and namespace", typeScriptIcon, "TypeScript Class and Namespace").
         addKind("Function", typeScriptIcon, "TypeScript Function").
@@ -37,6 +37,6 @@ class CreateTypeScriptFunctionAction : CreateFileFromTemplateAction(
       newName: String,
       templateName: String?
     ): String =
-        "TypeScript Entity"
+        "General"
 
 }
