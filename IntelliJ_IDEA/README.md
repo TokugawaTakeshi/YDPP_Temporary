@@ -74,6 +74,198 @@
 ## ライブテンプレート
 
 ### TypeScript
+#### 一般
+##### コンソール
+###### 汎用
+
+<dl>
+
+  <dt><kbd>cl</kbd></dt>
+  <dd>一般<code>console.log()</code></dd>
+
+  <dt><kbd>ce</kbd></dt>
+  <dd>一般<code>console.error()</code></dd>
+
+</dl>
+
+###### デバッグ・フィードバック
+
+<dl>
+
+  <dt><kbd>cp</kbd><dt>
+  <dd>
+    <code>console.log("CHECKPOINT ")</code>を導入。
+    その後、手動で番号か、其の他の文字を入力する事。
+    デバッグのに使われている。
+  </dd>
+
+  <dt><kbd>fb</kbd><dt>
+  <dd>
+    <code>console.log("FEEDBACK ")</code>を導入。
+    その後、手動で番号を入力する事。
+    プロジェクトが再構成されたか、確認したい時に使えば良い。
+  </dd>
+
+</dl>
+
+
+##### アロー関数
+
+<dl>
+
+  <dt><kbd>af</kbd></dt>
+  <dd>
+    <dl>
+      <dt>記憶術</dt>
+      <dd><b>a</b>rrow <b>f</b>unction</dd>
+      <dt>記述</dt>
+      <dd>
+        同期アロー変数（非同期の場合、代わりに<kbd>aaf</kbd>を利用）。
+        引数を入力した後で、<kbd>Tab</kbd>を押す前に、型を指定する事。
+      </dd>
+    </dl>
+  </dd>
+
+  <dt><kbd>aff</kbd></dt>
+  <dd>
+    <dl>
+      <dt>記憶術</dt>
+      <dd><b>a</b>sync <b>a</b>rrow <b>f</b>unction</dd>
+      <dt>記述</dt>
+      <dd>
+        非同期アロー変数。
+        引数を入力した後で、<kbd>Tab</kbd>を押す前に、型を指定する事。
+      </dd>
+    </dl>
+  </dd>
+
+</dl>
+
+
+#### エクスポート
+
+<dl>
+
+  <dt><kbd>edc</kbd></dt>
+  <dd><code>export default class {}</code></dd>
+
+  <dt><kbd>edf</kbd></dt>
+  <dd><code>export default function () {}</code></dd>
+
+  <dt><kbd>ei</kbd></dt>
+  <dd><code>export interface</code></dd>
+
+  <dt><kbd>en</kbd></dt>
+  <dd><code>export namespace</code></dd>
+
+  <dt><kbd>et</kbd></dt>
+  <dd><code>export type</code></dd>
+
+</dl>
+
+
+#### クラス
+##### フィルド
+
+<dl>
+
+  <dt><kbd>if</kbd></dt>
+  <dd>
+    <dl>
+      <dt>記憶術</dt>
+      <dd><b>i</b>nstance <b>f</b>ield</dd>
+      <dt>記述</dt>
+      <dd>インスタンス・フィルド</dd>
+    </dl>
+  </dd>
+
+  <dt><kbd>sf</kbd></dt>
+  <dd>
+    <dl>
+      <dt>記憶術</dt>
+      <dd><b>s</b>tatic <b>f</b>ield</dd>
+      <dt>記述</dt>
+      <dd>静的フィルド</dd>
+    </dl>
+  </dd>
+
+</dl>
+
+
+##### メソッド
+
+<dl>
+
+  <dt><kbd>im</kbd></dt>
+  <dd>
+    <dl>
+      <dt>記憶術</dt>
+      <dd><b>i</b>nstance <b>m</b>ethod</dd>
+      <dt>記述</dt>
+      <dd>インスタンス・メソッド</dd>
+    </dl>
+  </dd>
+
+  <dt><kbd>iam</kbd></dt>
+  <dd>
+    <dl>
+      <dt>記憶術</dt>
+      <dd><b>i</b>nstance <b>a</b>sync <b>m</b>ethod</dd>
+      <dt>記述</dt>
+      <dd>インスタンス非同期メソッド</dd>
+    </dl>
+  </dd>
+
+  <dt><kbd>sm</kbd></dt>
+  <dd>
+    <dl>
+      <dt>記憶術</dt>
+      <dd><b>s</b>tatic <b>m</b>ethod</dd>
+      <dt>記述</dt>
+      <dd>静的メソッド</dd>
+    </dl>
+  </dd>
+
+  <dt><kbd>sam</kbd></dt>
+  <dd>
+    <dl>
+      <dt>記憶術</dt>
+      <dd><b>s</b>tatic <b>a</b>sync <b>m</b>ethod</dd>
+      <dt>記述</dt>
+      <dd>静的非同期メソッド</dd>
+    </dl>
+  </dd>
+
+</dl>
+
+
+##### コメント系
+###### コメント見出し
+
+言語を関係無く、見出しはコードを節毎に分けて読みやすく表すするのに効率的。
+但し、見出しは分かりにくいコードを分かりやすくする為の手段では*なく*、コードを読みすく為の手段なので、変数名・関数名・クラス名等を明確する事が必要な儘。
+
+```typescript
+/* ━━━ Heading 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ┅┅┅ Heading 2 ┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅ */
+/* ╍╍╍ Heading 3 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍ */
+/* ─── Heading 4 ──────────────────────────────────────────────────────────────────────────────────────────────────── */
+/* ┄┄┄ Heading 5 ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄ */
+/* ╌╌╌ Heading 6 ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌ */
+```
+
+> ⚠️ 見出し行の文字数を120文字にする推奨。但し、全角文字の幅はフォント依存、従って環境依存なので、線の長さを何方の環境にも同じ長さにする為、見出しをラテン文字にする推薦。
+
+見出し１から見出し６へ行くと、ライブテンプレートは
+
++ <kbd>ch1</kbd> `/* ━━━ Heading 1 ━━━━━━━━━━━ */`
++ <kbd>ch2</kbd> `/* ┅┅┅ Heading 2 ┅┅┅┅┅┅┅┅┅┅┅ */`
++ <kbd>ch3</kbd> `/* ╍╍╍ Heading 3 ╍╍╍╍╍╍╍╍╍╍╍ */`
++ <kbd>ch4</kbd> `/* ─── Heading 4 ─────────── */`
++ <kbd>ch5</kbd> `/* ┄┄┄ Heading 5 ┄┄┄┄┄┄┄┄┄┄┄ */`
++ <kbd>ch6</kbd> `/* ╌╌╌ Heading 6 ╌╌╌╌╌╌╌╌╌╌╌ */`
+
+
 #### ビジネスルール TypeScript - Entities Properties Specification [YDPP]
 
 新しい[ビジネスルール](https://qiita.com/nozomi2025/items/b82992914ab14ddc250a)の
